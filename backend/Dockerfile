@@ -43,6 +43,8 @@ ENV DOCKERVERSION=17.09.1-ce
 RUN export arch_val="$(dpkg --print-architecture)"; \
     if [ "$arch_val" = "arm64" ]; then \
         curl -fsSLO https://download.docker.com/linux/static/stable/aarch64/docker-${DOCKERVERSION}.tgz; \
+    elif [ "$arch_val" = "armhf" ]; then \
+        curl -fsSLO https://download.docker.com/linux/static/stable/armhf/docker-${DOCKERVERSION}.tgz; \
     elif [ "$arch_val" = "amd64" ]; then \
         curl -fsSLO https://download.docker.com/linux/static/stable/x86_64/docker-${DOCKERVERSION}.tgz; \
     elif [ "$arch_val" = "ppc64el" ]; then \
